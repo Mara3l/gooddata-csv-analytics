@@ -1,5 +1,3 @@
-# gooddata-csv-analytics
-
 # How to analyze CSV data
 
 Intro...
