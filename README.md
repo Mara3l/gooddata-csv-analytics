@@ -4,19 +4,19 @@ If you have data in CSV format and want to analyze it, this short article provid
 
 ## Prerequisites
 
-- GoodData account (if you do not have one, you can register your [free trial](https://www.gooddata.com/trial/)).
-- Installed dbt Core (you can find installation guide in [dbt documentation](https://docs.getdbt.com/docs/core/installation)).
+- GoodData account (if you do not have one, you can register your [free trial](https://www.gooddata.com/trial/))
+- Installed dbt Core (you can find installation guide in [dbt documentation](https://docs.getdbt.com/docs/core/installation))
 
 ## Step 1: Add CSV to dbt seeds folder
 
-If you use the open-source repository `gooddat-csv-analytics`, go to the `import_csv` folder, where you can place your CSV files.
+If you use the open-source repository `gooddata-csv-analytics`, go to the `import_csv` folder, where you can place your CSV files.
 
 > [!NOTE]
 > dbt comes with an inbuilt csv loader (seeds) to populate your data warehouse with any files you put inside of your project’s seeds folder.
 
 ## Step 2: Edit profiles.yml
 
-The `profiles.yml` must contains connection details for your data warehouse (i.e. PostgreSQL). You can find `profiles.yml` on the following path:
+The `profiles.yml` must contain connection details for your data warehouse (i.e. PostgreSQL). You can find `profiles.yml` on the following path:
 
 ```bash
 $ ~/.dbt/profiles.yml
@@ -28,14 +28,14 @@ You can open it with Visual Studio Code:
 $ code ~/.dbt/profiles.yml
 ```
 
-Now, you can edit your connection details and save it:
+Now, you can edit your connection details and save them:
 
 ```bash
 import_csv:
   outputs:
 
     prod:
-      type: <bigquery | postgres | redshift | snowflake | other>
+      type: <postgres | snowflake | other>
       threads: 1
       host: <host>
       port: <host>
@@ -48,35 +48,35 @@ import_csv:
 ```
 
 > [!NOTE]
-> You can use [Neon](https://neon.tech/) (serverless postgres), where you can put 3 GB of data for free!
+> You can use [Neon](https://neon.tech/), or [Supabase](https://supabase.com/).
 
 ## Step 3: Run dbt seed
 
-If you configured successfuly the previous steps, you can run the following command in the `import_csv` folder:
+If you successfully configured the previous steps, you can run the following command in the `import_csv` folder:
 
 ```bash
 $ dbt seed
 ```
 
 > [!NOTE]
-> I slightly modified dbt project therefore I highly reccomend you to have it in the very same structure as [import_csv](https://github.com/patrikbraborec/gooddata-csv-analytics/tree/main/import_csv)
+> I slightly modified the dbt project, so I highly recommend that you maintain the same structure as [import_csv](https://github.com/patrikbraborec/gooddata-csv-analytics/tree/main/import_csv).
 
-If everything went smooth, you should see the following result:
+If everything went smoothly, you should see the following result:
 
 ![seed result](./images/seed_result.png)
 
 ## Step 4: Connect data source to GoodData
 
-In your GoodData account, go to tab `Data` and add data source. You should use the very data connection details you used in [Step 2](#step-2-edit-profilesyml).
+In your GoodData account, go to the `Data` tab and add a data source. You should use the same connection details that you used in [Step 2](#step-2-edit-profilesyml).
 
 ![add data source to GoodData](./images/add_data_source.png)
 
 > [!NOTE]
-> If you need more information, check the [documentation](https://www.gooddata.com/developers/cloud-native/doc/cloud/getting-started/connect-data/)
+> If you need more information, check the [documentation](https://www.gooddata.com/developers/cloud-native/doc/cloud/getting-started/connect-data/).
 
 ## Step 5: Analyze CSV data
 
-Open `Analyze` tab, where you can create metrics and visualizations based on your CSV data.
+Open the `Analyze` tab, where you can create metrics and visualizations based on your CSV data.
 
 ![analyze data](./images/analyze_data.png)
 
