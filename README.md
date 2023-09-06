@@ -63,13 +63,13 @@ $ dbt seed
 
 If everything went smooth, you should see the following result:
 
-[!seed result](./images/seed_result.png)
+![seed result](./images/seed_result.png)
 
 ## Step 4: Connect data source to GoodData
 
 In your GoodData account, go to tab `Data` and add data source. You should use the very data connection details you used in [Step 2](#step-2-edit-profilesyml).
 
-[!add data source to GoodData](./images/add_data_source.png)
+![add data source to GoodData](./images/add_data_source.png)
 
 > [!NOTE]
 > If you need more information, check the [documentation](https://www.gooddata.com/developers/cloud-native/doc/cloud/getting-started/connect-data/)
@@ -78,7 +78,7 @@ In your GoodData account, go to tab `Data` and add data source. You should use t
 
 Open `Analyze` tab, where you can create metrics and visualizations based on your CSV data.
 
-[!analyze data](./images/analyze_data.png)
+![analyze data](./images/analyze_data.png)
 
 > [!NOTE]
 > Do you need to modify your CSV data? Check [Create SQL Datasets](https://www.gooddata.com/developers/cloud-native/doc/cloud/model-data/create-logical-data-model/create-sql-datasets/) documentation page. This feature can help you with modification.
